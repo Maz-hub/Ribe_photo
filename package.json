@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.80.6"
+  },
+  "name": "ribe_photo",
+  "version": "1.0.0",
+  "description": "Starter template for ribe_photo bootstrap web app",
+  "main": "index.js",
+  "scripts": {
+    "sass:build": "sass --no-source-map scss:css",
+    "sass:watch": "sass --no-source-map --watch scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maz-hub/ribe_photo.git"
+  },
+  "author": "Marianna Mirabile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maz-hub/ribe_photo/issues"
+  },
+  "homepage": "https://github.com/Maz-hub/ribe_photo#readme"
+}
