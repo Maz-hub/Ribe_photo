@@ -1,3 +1,82 @@
-$primary: red;
+// ---------------------------
+// Font Settings
+// ---------------------------
+// Set the default font family for the site to "Poppins"
+$font-family-sans-serif: "Poppins", sans-serif;
 
+// ---------------------------
+// Custom Color Variables
+// ---------------------------
+// Define primary and secondary brand colors
+$primary: hsl(204, 42%, 27%); // Primary color - dark blue
+$secondary: hsl(183, 31%, 34%); // Secondary color - teal
+$dark: hsl(0, 0%, 21%); // Dark color for text or backgrounds
+$light: hsl(0, 0%, 85%); // Light color for backgrounds or accents
+$bg: hsl(220, 7%, 92%); // Background color (light grey)
+
+// ---------------------------
+// Custom Button Styles
+// ---------------------------
+// Set default button border radius and padding
+$button-radius: 3.125rem; // General border radius for buttons
+$button-padding-x: 1.875rem; // Horizontal padding for buttons
+$button-padding-y: 0.75rem; // Vertical padding for buttons
+
+// ---------------------------
+// Bootstrap Button Overrides
+// ---------------------------
+// Apply custom button styles to Bootstrap button components
+$btn-border-radius: $button-radius; // Apply custom radius to default buttons
+$btn-border-radius-sm: $button-radius; // Apply custom radius to small buttons
+$btn-border-radius-lg: $button-radius; // Apply custom radius to large buttons
+$btn-padding-y: $button-padding-y; // Apply custom vertical padding to buttons
+$btn-padding-y-sm: $button-padding-y; // Apply custom vertical padding to buttons
+$btn-padding-y-lg: $button-padding-y; // Apply custom vertical padding to buttons
+$btn-padding-x: $button-padding-x; // Apply custom horizontal padding to buttons
+$btn-padding-x-sm: $button-padding-x; // Apply custom horizontal padding to buttons
+$btn-padding-x-lg: $button-padding-x; // Apply custom horizontal padding to buttons
+
+$navbar-toggler-border-radius: 5px;
+
+// ---------------------------
+// Navbar Customization
+// ---------------------------
+// Define custom padding and color settings for the navbar
+$navbar-padding-y: 1rem; // Vertical padding inside navbar
+$navbar-dark-color: hsl(0, 0%, 100%); // Text color for dark navbar
+$navbar-dark-hover-color: $light; // Hover color for navbar items
+
+// ---------------------------
+// Spacers
+// ---------------------------
+// Define the base spacing unit for margin and padding
+$spacer: 1rem !default;
+
+// Define custom spacing scale using the base spacer unit
+// Create consistent spacing classes, such as .m-1, .p-2, etc.
+$spacers: (
+  0: 0,
+  // 0 spacing (no margin/padding)
+  1: $spacer * 0.25,
+  // Small spacing (0.25rem)
+  2: $spacer * 0.5,
+  // Medium spacing (0.5rem)
+  3: $spacer,
+  // Default spacing (1rem)
+  4: $spacer * 1.5,
+  // Large spacing (1.5rem)
+  5: $spacer * 3,
+  // Extra large spacing (3rem)
+  6: $spacer * 6,
+  // 6x spacing (6rem) for greater layout control
+  7: $spacer * 8,
+  // 8x spacing (8rem) for even larger gaps
+  8: $spacer * 12,
+  // 12x spacing (12rem) for maximum spacing needs
+) !default;
+
+// ---------------------------
+// Import Bootstrap
+// ---------------------------
+// Import Bootstrap's SCSS source to apply custom overrides
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
