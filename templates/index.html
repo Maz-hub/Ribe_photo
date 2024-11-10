@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container">
         <a href="index.html" class="navbar-brand">
           <img
@@ -51,14 +51,12 @@
       </div>
     </nav>
 
-    <!-- Header -->
+    <!-- Header Section -->
+
     <header class="header">
       <!-- Hero Carousel -->
-      <div
-        id="carouselExampleCaptions"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
+      <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <!-- Carousel Indicators (Dots) -->
         <div class="carousel-indicators">
           <button
             type="button"
@@ -80,52 +78,75 @@
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
         </div>
+
+        <!-- Carousel Images (Slides) -->
         <div class="carousel-inner">
+          <!-- Slide 1 -->
           <div class="carousel-item active">
             <img
-              src="/img/homepage/Autumn_Ribe_Photo_8.jpg"
+              src="/img/homepage/Leman_Ribe_Photo_2.webp"
               class="d-block w-100"
-              alt="..."
+              alt="Leman scene"
             />
             <div class="carousel-caption d-none d-md-block">
-              <h1>Autumn</h1>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
+              <h1 class="text-uppercase fw-bold">Lake Leman</h1>
+              <button type="button" class="btn btn-secondary">
+                See project
+              </button>
             </div>
           </div>
+          <!-- Slide 2 -->
           <div class="carousel-item">
             <img
-              src="/img/homepage/Dubrovnik_Ribe_Photo_1.jpg"
+              src="/img/homepage/Plitvice_Ribe_Photo_25.webp"
               class="d-block w-100"
-              alt="..."
+              alt="Plitvice cascade scene"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
           </div>
+          <!-- Slide 3 -->
           <div class="carousel-item">
             <img
-              src="/img/homepage/Leman_Ribe_Photo_2.jpg"
+              src="/img/homepage/Autumn_Ribe_Photo_8.webp"
               class="d-block w-100"
-              alt="..."
+              alt="Autumn scene"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
-            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <img
+              src="/img/homepage/Dubrovnik_Ribe_Photo_1.webp"
+              class="d-block w-100"
+              alt="Dubrovnik scene"
+            />
+          </div>
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <img
+              src="/img/homepage/Leman_Ribe_Photo_8.webp"
+              class="d-block w-100"
+              alt="Lake Leman sunrise fog"
+            />
           </div>
         </div>
+
+        <!-- Carousel Controls -->
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselExampleFade"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -134,7 +155,7 @@
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselExampleFade"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -144,6 +165,7 @@
     </header>
 
     <script src="/js/bootstrap.bundle.min.js"></script>
+
     <script src="/js/script.js"></script>
   </body>
 </html>

@@ -1,5 +1,43 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap");
+/* Remove any default margin or padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
 
+/* Remove horizontal scrollbar */
+body {
+  overflow-x: hidden;
+}
+
+/* Navbar styles */
 .navbar .btn-outline-light:hover {
   color: var(--bs-dark);
+}
+
+.navbar {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Semi-transparent background for readability */
+}
+
+/* Homepage carousel adjustments */
+.carousel-item {
+  height: 100vh; /* Full viewport height */
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: center center no-repeat;
+  background-size: cover;
+}
+
+/* Make images fully responsive and prevent horizontal scroll */
+.carousel-item img {
+  width: 100%; /* Use 100% width to prevent overflow */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Ensures the image scales and covers the full area */
 }

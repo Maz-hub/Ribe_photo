@@ -75,6 +75,9 @@ $spacers: (
   // 12x spacing (12rem) for maximum spacing needs
 ) !default;
 
+$line-height-base: 1.7;
+$headings-margin-bottom: $spacer * 1;
+
 // ---------------------------
 // Import Bootstrap
 // ---------------------------
