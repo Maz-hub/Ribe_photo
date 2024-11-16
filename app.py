@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from cloudinary.api import resource
 from cloudinary.utils import cloudinary_url
 import cloudinary
 import os
@@ -7,11 +8,11 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Cloudinary configuration      
-cloudinary.config( 
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"), 
-    api_key = os.getenv("CLOUDINARY_API_KEY"), 
-    api_secret = os.getenv("CLOUDINARY_API_SECRET"),
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=True
 )
 
@@ -28,14 +29,20 @@ def index():
         "Sahara_Ribe_Photo_3_mgyyrr"
     ]
 
-    # Generate URLs dynamically for the public IDs
-    slide_urls = [cloudinary_url(public_id)[0] for public_id in public_ids]
+    # Fetch metadata for each image
+    slides = []
+    for public_id in public_ids:
+        metadata = resource(public_id)
+        slide = {
+            "url": cloudinary_url(public_id)[0],
+            "title": metadata.get("context", {}).get("custom", {}).get("caption", "Untitled"),
+            "description": metadata.get("context", {}).get("custom", {}).get("alt", "No description available"),
+            "tags": metadata.get("tags", [])
+        }
+        slides.append(slide)
 
-    # Pass the URLs to the template
-    return render_template("index.html", slide_urls=slide_urls)
-
-
-
+    # Pass the slides to the template
+    return render_template("index.html", slides=slides)
 
 if __name__ == "__main__":
     app.run(debug=True)

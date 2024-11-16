@@ -64,68 +64,23 @@
     <header class="header">
       <!-- Hero Carousel -->
       <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <!-- Carousel Indicators (Dots) -->
-        <div class="carousel-indicators">
-          {% for url in slide_urls %}
-          <button
-            type="button"
-            data-bs-target="#carouselExampleFade"
-            data-bs-slide-to="{{ loop.index0 }}"
-            class="{% if loop.index == 1 %}active{% endif %}"
-            aria-label="Slide {{ loop.index }}"
-          ></button>
-          {% endfor %}
-        </div>
-
-        <!-- Carousel Images (Slides) -->
         <div class="carousel-inner">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
+          {% for slide in slides %}
+          <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
             <img
-              src="{{ slide_urls[0] }}"
+              src="{{ slide.url }}"
               class="d-block w-100"
-              alt="Lake Leman"
+              alt="{{ slide.description }}"
             />
             <div class="carousel-caption d-none d-md-block">
-              <h1 class="text-uppercase fw-bold">Lake Leman</h1>
+              <h1 class="text-uppercase fw-bold">{{ slide.title }}</h1>
+              <p>{{ slide.description }}</p>
+              <button type="button" class="btn btn-secondary">
+                View Project
+              </button>
             </div>
           </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[1] }}"
-              class="d-block w-100"
-              alt="Plitvice Cascades"
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="text-uppercase fw-bold">Plitvice Cascades</h1>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[2] }}"
-              class="d-block w-100"
-              alt="Autumn Serenity"
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="text-uppercase fw-bold">Autumn Serenity</h1>
-            </div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[3] }}"
-              class="d-block w-100"
-              alt="Sahara Desert"
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="text-uppercase fw-bold">Sahara Desert</h1>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 
         <!-- Carousel Controls -->
