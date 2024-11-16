@@ -1,2 +1,5 @@
-node_modules
+__pycache__/
 virt/
+.env
+*.pyc
+node_modules/

@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- CSS Links -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
     <title>Ribe Photography</title>
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container">
+        <!-- Logo with Flask's `url_for` -->
         <a href="index.html" class="navbar-brand">
           <img
-            src="/img/logo/ribe_photo-logo-W.png"
+            src="{{ url_for('static', filename='img/ribe_photo-logo-W.png') }}"
             alt="Ribe Photo logo"
             width="55"
           />
@@ -58,38 +66,15 @@
       <div id="carouselExampleFade" class="carousel slide carousel-fade">
         <!-- Carousel Indicators (Dots) -->
         <div class="carousel-indicators">
+          {% for url in slide_urls %}
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
+            data-bs-target="#carouselExampleFade"
+            data-bs-slide-to="{{ loop.index0 }}"
+            class="{% if loop.index == 1 %}active{% endif %}"
+            aria-label="Slide {{ loop.index }}"
           ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"
-          ></button>
+          {% endfor %}
         </div>
 
         <!-- Carousel Images (Slides) -->
@@ -97,48 +82,49 @@
           <!-- Slide 1 -->
           <div class="carousel-item active">
             <img
-              src="/img/homepage/Leman_Ribe_Photo_2.webp"
+              src="{{ slide_urls[0] }}"
               class="d-block w-100"
-              alt="Leman scene"
+              alt="Lake Leman"
             />
             <div class="carousel-caption d-none d-md-block">
               <h1 class="text-uppercase fw-bold">Lake Leman</h1>
-              <button type="button" class="btn btn-secondary">
-                See project
-              </button>
             </div>
           </div>
+
           <!-- Slide 2 -->
           <div class="carousel-item">
             <img
-              src="/img/homepage/Plitvice_Ribe_Photo_25.webp"
+              src="{{ slide_urls[1] }}"
               class="d-block w-100"
-              alt="Plitvice cascade scene"
+              alt="Plitvice Cascades"
             />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="text-uppercase fw-bold">Plitvice Cascades</h1>
+            </div>
           </div>
+
           <!-- Slide 3 -->
           <div class="carousel-item">
             <img
-              src="/img/homepage/Autumn_Ribe_Photo_8.webp"
+              src="{{ slide_urls[2] }}"
               class="d-block w-100"
-              alt="Autumn scene"
+              alt="Autumn Serenity"
             />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="text-uppercase fw-bold">Autumn Serenity</h1>
+            </div>
           </div>
+
           <!-- Slide 4 -->
           <div class="carousel-item">
             <img
-              src="/img/homepage/Dubrovnik_Ribe_Photo_1.webp"
+              src="{{ slide_urls[3] }}"
               class="d-block w-100"
-              alt="Dubrovnik scene"
+              alt="Sahara Desert"
             />
-          </div>
-          <!-- Slide 5 -->
-          <div class="carousel-item">
-            <img
-              src="/img/homepage/Leman_Ribe_Photo_8.webp"
-              class="d-block w-100"
-              alt="Lake Leman sunrise fog"
-            />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="text-uppercase fw-bold">Sahara Desert</h1>
+            </div>
           </div>
         </div>
 
@@ -163,9 +149,8 @@
         </button>
       </div>
     </header>
-
-    <script src="/js/bootstrap.bundle.min.js"></script>
-
-    <script src="/js/script.js"></script>
+    <!-- JavaScript Links -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
