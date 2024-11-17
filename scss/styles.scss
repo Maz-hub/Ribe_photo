@@ -45,3 +45,30 @@ body {
 .carousel-caption {
   padding-bottom: 5rem;
 }
+
+/* GALLERIE PAGE */
+
+.banner {
+  background-position: center center; /* Centers the image */
+  background-size: cover; /* Ensures the image fills the banner */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+  height: 70vh; /* Adjusts banner height */
+}
+
+.project-card {
+  border-radius: 0.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Disable transform on hover for smaller screens */
+  @media (min-width: 768px) {
+    /* Applies only to devices larger than 768px */
+    &:hover {
+      transform: translateY(-1px); /* Slightly lift the image on desktop */
+    }
+  }
+}

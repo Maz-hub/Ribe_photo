@@ -35,6 +35,39 @@ def index():
     # Pass the URLs to the template
     return render_template("index.html", slide_urls=slide_urls)
 
+@app.route("/galleries")
+def galleries():
+    # Public ID for the banner photo
+    banner_id = "ribe_About_wnx8bn"
+
+    # Public IDs for the project images
+    project_ids = [
+        "Title_dbotoo",
+        "Title_tpdmtb",
+        "Title_2_oza264",
+        "Title_le3xqj",
+        "title_rmcb2a",
+        "Title_cxofnz",
+        
+    ]
+
+    # Generate URLs dynamically
+    banner_url = cloudinary_url(banner_id)[0]
+    project_urls = [cloudinary_url(project_id)[0] for project_id in project_ids]
+
+    # Pass the URLs to the template
+    return render_template("galleries.html", banner_url=banner_url, project_urls=project_urls)
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
