@@ -8,8 +8,8 @@
   "description": "Starter template for ribe_photo bootstrap web app",
   "main": "index.js",
   "scripts": {
-    "sass:build": "sass --no-source-map scss:css",
-    "sass:watch": "sass --no-source-map --watch scss:css"
+    "sass:build": "sass --no-source-map scss:static/css",
+    "sass:watch": "sass --no-source-map --watch scss:static/css"
   },
   "repository": {
     "type": "git",

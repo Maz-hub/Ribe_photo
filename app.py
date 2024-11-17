@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from cloudinary.api import resource
 from cloudinary.utils import cloudinary_url
+from cloudinary.api import resource
 import cloudinary
 import os
 from dotenv import load_dotenv
@@ -17,7 +17,7 @@ cloudinary.config(
 )
 
 # Flask instance
-app = Flask(__name__)
+app = Flask(__name__)  # This must come before any use of 'app'
 
 @app.route('/')
 def index():
@@ -29,20 +29,12 @@ def index():
         "Sahara_Ribe_Photo_3_mgyyrr"
     ]
 
-    # Fetch metadata for each image
-    slides = []
-    for public_id in public_ids:
-        metadata = resource(public_id)
-        slide = {
-            "url": cloudinary_url(public_id)[0],
-            "title": metadata.get("context", {}).get("custom", {}).get("caption", "Untitled"),
-            "description": metadata.get("context", {}).get("custom", {}).get("alt", "No description available"),
-            "tags": metadata.get("tags", [])
-        }
-        slides.append(slide)
+    # Generate URLs dynamically for the public IDs
+    slide_urls = [cloudinary_url(public_id)[0] for public_id in public_ids]
 
-    # Pass the slides to the template
-    return render_template("index.html", slides=slides)
+    # Pass the URLs to the template
+    return render_template("index.html", slide_urls=slide_urls)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

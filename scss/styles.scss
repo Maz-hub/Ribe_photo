@@ -41,3 +41,7 @@ body {
   height: 100vh; /* Full viewport height */
   object-fit: cover; /* Ensures the image scales and covers the full area */
 }
+
+.carousel-caption {
+  padding-bottom: 5rem;
+}
