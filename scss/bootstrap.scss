@@ -43,6 +43,7 @@ $navbar-toggler-border-radius: 5px;
 // ---------------------------
 // Define custom padding and color settings for the navbar
 $navbar-padding-y: 1rem; // Vertical padding inside navbar
+$navbar-nav-link-padding-x: 0.8rem;
 $navbar-dark-color: hsl(0, 0%, 100%); // Text color for dark navbar
 $navbar-dark-hover-color: $light; // Hover color for navbar items
 

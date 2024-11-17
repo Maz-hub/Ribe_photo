@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS Links -->
-    <!-- CSS Links -->
+
+    <!-- Links -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/fontawesome.css') }}"
+    />
+
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/bootstrap.css') }}"
@@ -57,6 +62,25 @@
               >
             </li>
           </ul>
+          <!-- Social Icons -->
+          <!-- Instagram -->
+          <span class="nav-item">
+            <span class="fa-stack">
+              <a href="https://www.instagram.com/ribe_photo/">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x text-white"></i>
+              </a>
+            </span>
+          </span>
+          <!-- Behance -->
+          <span class="nav-item">
+            <span class="fa-stack">
+              <a href="https://www.behance.net/andrearibero">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-behance fa-stack-1x text-white"></i>
+              </a>
+            </span>
+          </span>
         </div>
       </div>
     </nav>
