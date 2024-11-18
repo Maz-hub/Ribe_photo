@@ -1,225 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %} {% block content %}
+<!-- Header Section -->
 
-    <!-- Links -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/fontawesome.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/bootstrap.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/styles.css') }}"
-    />
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='img/ribe_photo_favicon.png') }}"
-    />
-
-    <title>Ribe Photo</title>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-      <div class="container">
-        <!-- Logo with Flask's `url_for` -->
-        <a href="{{ url_for('index') }}" class="navbar-brand">
-          <img
-            src="{{ url_for('static', filename='img/ribe_photo-logo-W.png') }}"
-            alt="Ribe Photo logo"
-            width="55"
-          />
-        </a>
-
-        <!-- Mobile Hamburger Menu -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a
-                href="{{ url_for('galleries') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'galleries' %}active{% endif %}"
-              >
-                Galleries
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="{{ url_for('about') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'about' %}active{% endif %}"
-              >
-                About
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="{{ url_for('contact') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'contact' %}active{% endif %}"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-          <!-- Social Icons -->
-          <!-- Instagram -->
-          <span class="nav-item">
-            <span class="fa-stack">
-              <a
-                href="https://www.instagram.com/ribe_photo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x text-white"></i>
-              </a>
-            </span>
-          </span>
-          <!-- Behance -->
-          <span class="nav-item">
-            <span class="fa-stack">
-              <a
-                href="https://www.behance.net/andrearibero"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-behance fa-stack-1x text-white"></i>
-              </a>
-            </span>
-          </span>
+<header class="header">
+  <!-- Hero Carousel -->
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img src="{{ slide_urls[0] }}" class="d-block w-100" alt="Lake Leman" />
+        <div class="carousel-caption text-center">
+          <h1 class="text-uppercase fw-bold">Colors of Léman</h1>
+          <button type="button" class="btn btn-secondary shadow">
+            View Project
+          </button>
         </div>
       </div>
-    </nav>
-
-    <!-- Header Section -->
-
-    <header class="header">
-      <!-- Hero Carousel -->
-      <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <div class="carousel-inner">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <img
-              src="{{ slide_urls[0] }}"
-              class="d-block w-100"
-              alt="Lake Leman"
-            />
-            <div class="carousel-caption text-center">
-              <h1 class="text-uppercase fw-bold">Colors of Léman</h1>
-              <button type="button" class="btn btn-secondary shadow">
-                View Project
-              </button>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[1] }}"
-              class="d-block w-100"
-              alt="Plitvice Cascade"
-            />
-            <div class="carousel-caption text-center">
-              <h1 class="text-uppercase fw-bold">Croatia Unveiled</h1>
-              <button type="button" class="btn btn-secondary shadow">
-                View Project
-              </button>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[2] }}"
-              class="d-block w-100"
-              alt="Swiss Autumn"
-            />
-            <div class="carousel-caption text-center">
-              <h1 class="text-uppercase fw-bold">Autumn Whispers</h1>
-              <button type="button" class="btn btn-secondary shadow">
-                View Project
-              </button>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="carousel-item">
-            <img
-              src="{{ slide_urls[3] }}"
-              class="d-block w-100"
-              alt="Sahara Desert"
-            />
-            <div class="carousel-caption text-center">
-              <h1 class="text-uppercase fw-bold">Sahara Glow</h1>
-              <button type="button" class="btn btn-secondary shadow">
-                View Project
-              </button>
-            </div>
-          </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img
+          src="{{ slide_urls[1] }}"
+          class="d-block w-100"
+          alt="Plitvice Cascade"
+        />
+        <div class="carousel-caption text-center">
+          <h1 class="text-uppercase fw-bold">Croatia Unveiled</h1>
+          <button type="button" class="btn btn-secondary shadow">
+            View Project
+          </button>
         </div>
-
-        <!-- Slide Indicators -->
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleFade"
-            data-bs-slide-to="0"
-            class="active"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleFade"
-            data-bs-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleFade"
-            data-bs-slide-to="2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleFade"
-            data-bs-slide-to="3"
-          ></button>
-        </div>
-
-        <!-- Carousel Controls -->
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-    </header>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img
+          src="{{ slide_urls[2] }}"
+          class="d-block w-100"
+          alt="Swiss Autumn"
+        />
+        <div class="carousel-caption text-center">
+          <h1 class="text-uppercase fw-bold">Autumn Whispers</h1>
+          <button type="button" class="btn btn-secondary shadow">
+            View Project
+          </button>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <img
+          src="{{ slide_urls[3] }}"
+          class="d-block w-100"
+          alt="Sahara Desert"
+        />
+        <div class="carousel-caption text-center">
+          <h1 class="text-uppercase fw-bold">Sahara Glow</h1>
+          <button type="button" class="btn btn-secondary shadow">
+            View Project
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- JavaScript Links -->
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-  </body>
-</html>
+    <!-- Slide Indicators -->
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide-to="0"
+        class="active"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide-to="1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide-to="2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide-to="3"
+      ></button>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleFade"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleFade"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+{% endblock %}
