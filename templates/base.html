@@ -108,6 +108,49 @@
     </nav>
 
     {% block content %} {% endblock %}
+    <!-- Footer -->
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+
+    <div class="mt-5">
+      <footer class="text-center text-white bg-dark">
+        <!-- Grid container -->
+
+        <div class="container">
+          <!-- Section: Links -->
+
+          <section class="mt-5">
+            <div class="row text-center d-flex justify-content-center pt-5">
+              <div class="col-md-3">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="#!" class="text-white">Terms & Conditions</a>
+                </h6>
+              </div>
+
+              <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="#!" class="text-white">Privacy Policy</a>
+                </h6>
+              </div>
+
+              <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                  <a href="#!" class="text-white">Contact</a>
+                </h6>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Copyright -->
+        <div
+          class="text-center p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          Copyright &copy; 2024 Ribe Photo | Developed by Mazoolander
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
+
     <!-- JavaScript Links -->
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

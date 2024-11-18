@@ -1,122 +1,103 @@
 {% extends 'base.html' %} {% block content %}
 
-    <!-- Banner -->
-    <section
-      id="banner"
-      class="banner"
-      style="background-image: url('{{ banner_url }}');"
-    ></section>
+<!-- Banner -->
+<section
+  id="banner"
+  class="banner"
+  style="background-image: url('{{ banner_url }}');"
+></section>
 
-    <!-- Projects -->
-    <section id="projects" class="projects my-5">
-      <div class="container">
-        <h1 class="text-center text-uppercase">Journeys Through My Lens</h1>
-        <p class="text-justify my-2">
-          Welcome to my projects gallery, where each collection is more than
-          just a set of photos—it’s a story. Every image here is a piece of a
-          journey, an invitation to explore a world filled with wild landscapes,
-          quiet moments, and natural beauty. From mist-laden Swiss mountains to
-          the vibrant autumn forests, and the sunlit shores of distant lakes,
-          each project captures a unique experience, a slice of nature seen
-          through my eyes.
-        </p>
-        <p class="text-justify mb-5">
-          Click on any collection below to dive deeper into these scenes, where
-          I share not only what I saw, but what I felt. This is my way of
-          bringing a little piece of these places to you, hoping they’ll inspire
-          the same awe and connection with nature that I felt while capturing
-          them.
-        </p>
+<!-- Projects -->
+<section id="projects" class="projects my-5">
+  <div class="container">
+    <h1 class="text-center text-uppercase">Journeys Through My Lens</h1>
+    <p class="text-justify my-2">
+      Welcome to my projects gallery, where each collection is more than just a
+      set of photos—it’s a story. Every image here is a piece of a journey, an
+      invitation to explore a world filled with wild landscapes, quiet moments,
+      and natural beauty. From mist-laden Swiss mountains to the vibrant autumn
+      forests, and the sunlit shores of distant lakes, each project captures a
+      unique experience, a slice of nature seen through my eyes.
+    </p>
+    <p class="text-justify mb-5">
+      Click on any collection below to dive deeper into these scenes, where I
+      share not only what I saw, but what I felt. This is my way of bringing a
+      little piece of these places to you, hoping they’ll inspire the same awe
+      and connection with nature that I felt while capturing them.
+    </p>
 
-        <!-- Projects Row 1 -->
-        <div class="row">
-          <!-- Project 1 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project1">
-              <img
-                src="{{ project_urls[0] }}"
-                class="img-fluid project-card"
-                alt="Project 1"
-              />
-            </a>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project2">
-              <img
-                src="{{ project_urls[1] }}"
-                class="img-fluid project-card"
-                alt="Project 2"
-              />
-            </a>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project3">
-              <img
-                src="{{ project_urls[2] }}"
-                class="img-fluid project-card"
-                alt="Project 3"
-              />
-            </a>
-          </div>
-        </div>
-
-        <!-- Projects Row 2 -->
-        <div class="row mb-4">
-          <!-- Project 4 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project1">
-              <img
-                src="{{ project_urls[3] }}"
-                class="img-fluid project-card"
-                alt="Project 1"
-              />
-            </a>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project2">
-              <img
-                src="{{ project_urls[4] }}"
-                class="img-fluid project-card"
-                alt="Project 2"
-              />
-            </a>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="col-md-4 mb-4">
-            <a href="/project3">
-              <img
-                src="{{ project_urls[5] }}"
-                class="img-fluid project-card"
-                alt="Project 3"
-              />
-            </a>
-          </div>
-        </div>
+    <!-- Projects Row 1 -->
+    <div class="row">
+      <!-- Project 1 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project1">
+          <img
+            src="{{ project_urls[0] }}"
+            class="img-fluid project-card"
+            alt="Project 1"
+          />
+        </a>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer mt-4 text-bg-dark py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ms-auto">
-            <ul class="list-unstyled">
-              <li"><a href="#" class="text-white text-decoration-none">Legal</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <p class="d-flex gap-3 text-muted">
-              Copyright &copy; 2024 | Developed by Mazoolander
-            </p>
-          </div>
-        </div>
+      <!-- Project 2 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project2">
+          <img
+            src="{{ project_urls[1] }}"
+            class="img-fluid project-card"
+            alt="Project 2"
+          />
+        </a>
       </div>
-    </footer>
+
+      <!-- Project 3 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project3">
+          <img
+            src="{{ project_urls[2] }}"
+            class="img-fluid project-card"
+            alt="Project 3"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Projects Row 2 -->
+    <div class="row mb-4">
+      <!-- Project 4 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project1">
+          <img
+            src="{{ project_urls[3] }}"
+            class="img-fluid project-card"
+            alt="Project 1"
+          />
+        </a>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project2">
+          <img
+            src="{{ project_urls[4] }}"
+            class="img-fluid project-card"
+            alt="Project 2"
+          />
+        </a>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="col-md-4 mb-4">
+        <a href="/project3">
+          <img
+            src="{{ project_urls[5] }}"
+            class="img-fluid project-card"
+            alt="Project 3"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
