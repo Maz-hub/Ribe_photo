@@ -65,7 +65,10 @@ def about():
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    banner_id = "Leman_Ribe_Photo_10_znewj3"
+    banner_url = cloudinary_url(banner_id)[0]
+    
+    return render_template("contact.html", banner_url=banner_url)
 
 @app.route("/privacy_terms")
 def privacy_terms():

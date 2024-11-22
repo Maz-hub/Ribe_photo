@@ -1,1 +1,68 @@
-{% extends 'base.html' %} {% block content %} {% endblock %}
+{% extends 'base.html' %} {% block content %}
+
+<section
+  id="banner"
+  class="banner mb-5"
+  style="background-image: url('{{ banner_url }}');"
+></section>
+
+<section class="contact py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 d-flex align-items-start mb-5">
+        <div>
+          <h1 class="text-center text-uppercase pb-3">Let’s Connect</h1>
+          <p class="text-justify my-2">
+            Thanks for stopping by. If something in these photos spoke to you,
+            or if you’re looking to connect, network, or talk about a
+            photography project, this is the place to reach out. I’m always open
+            to new opportunities, collaborations, or just a good conversation
+            about capturing the wild, the raw, and the real.
+            <br />
+            <br />
+            Drop a message, and I’ll get back to you as soon as I can. Whether
+            it’s to share ideas, plan a project, or simply swap stories, I’m
+            looking forward to hearing from you.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form Section -->
+      <div class="col-lg-6 col-md-12">
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="name"
+              placeholder="Name"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control form-control-lg"
+              name="message"
+              rows="5"
+              placeholder="Message"
+            ></textarea>
+          </div>
+          <div class="my-3">
+            <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
