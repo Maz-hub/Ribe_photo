@@ -67,7 +67,12 @@ def about():
 def contact():
     return render_template("contact.html")
 
-
+@app.route("/privacy_terms")
+def privacy_terms():
+    banner_id = "Mushroom_ribe_photo_3_xrfsdr"
+    banner_url = cloudinary_url(banner_id)[0]
+    
+    return render_template("privacy_terms.html", banner_url=banner_url)
 
 if __name__ == "__main__":
     app.run(debug=True)

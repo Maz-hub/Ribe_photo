@@ -73,14 +73,26 @@ body {
   padding-bottom: 5rem;
 }
 
-/* GALLERIE PAGE */
+/* BANNER */
 .banner {
   background-position: center center; /* Centers the image */
   background-size: cover; /* Ensures the image fills the banner */
   background-repeat: no-repeat; /* Prevents tiling of the image */
-  height: 70vh; /* Adjusts banner height */
+  height: 70vh; /* Default banner height for desktop */
 }
 
+/* Banner tablet view */
+@media (max-width: 1024px) {
+  .banner {
+    height: 50vh; /* Adjust height for tablets */
+  }
+}
+/* Banner mobile view */
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh; /* Adjust height for mobile */
+  }
+}
 .project-card {
   border-radius: 0.5rem;
   transition: box-shadow 0.3s ease, transform 0.3s ease;

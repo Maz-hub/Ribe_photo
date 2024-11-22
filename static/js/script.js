@@ -24,6 +24,17 @@ function scrollToTop() {
   document.documentElement.scrollTop = 0;
 }
 
+// Smooth scrolling
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
+
 // run when DOM is loaded / Event Listeners
 document.addEventListener("DOMContentLoaded", userScroll);
 document.querySelector("#to-top").addEventListener("click", scrollToTop);
