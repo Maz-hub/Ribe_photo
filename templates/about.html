@@ -1,114 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %} {% block content %}
 
-    <!-- Links -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/fontawesome.css') }}"
-    />
+<section
+  id="banner"
+  class="banner mb-5"
+  style="background-image: url('{{ banner_url }}');"
+></section>
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/bootstrap.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/styles.css') }}"
-    />
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='img/ribe_photo_favicon.png') }}"
-    />
-
-    <title>Ribe Photo</title>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-      <div class="container">
-        <!-- Logo with Flask's `url_for` -->
-        <a href="{{ url_for('index') }}" class="navbar-brand">
-          <img
-            src="{{ url_for('static', filename='img/ribe_photo-logo-W.png') }}"
-            alt="Ribe Photo logo"
-            width="55"
-          />
-        </a>
-
-        <!-- Mobile Hamburger Menu -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a
-                href="{{ url_for('galleries') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'galleries' %}active{% endif %}"
-              >
-                Galleries
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="{{ url_for('about') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'about' %}active{% endif %}"
-              >
-                About
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="{{ url_for('contact') }}"
-                class="nav-link fw-semibold text-uppercase {% if request.endpoint == 'contact' %}active{% endif %}"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-          <!-- Social Icons -->
-          <!-- Instagram -->
-          <span class="nav-item">
-            <span class="fa-stack">
-              <a
-                href="https://www.instagram.com/ribe_photo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x text-white"></i>
-              </a>
-            </span>
-          </span>
-          <!-- Behance -->
-          <span class="nav-item">
-            <span class="fa-stack">
-              <a
-                href="https://www.behance.net/andrearibero"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-behance fa-stack-1x text-white"></i>
-              </a>
-            </span>
-          </span>
-        </div>
+<section class="about py-5">
+  <div class="container">
+    <div class="row align-items-start mb-5">
+      <!-- First Image -->
+      <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+        <img
+          src="{{ first_image_url }}"
+          alt="Canon 5D Mark IV"
+          class="img-fluid rounded"
+        />
       </div>
-    </nav>
 
-    <!-- JavaScript Links -->
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-  </body>
-</html>
+      <!-- First Part of Text -->
+      <div class="col-lg-6 col-md-12 order-lg-2 order-1">
+        <h1 class="text-center text-uppercase pb-3">Who Am I ?</h1>
+        <p>
+          Photography has been a constant in my life for as long as I can
+          remember. Even as a child, I felt an urge to hold onto moments—to
+          freeze time, if only for an instant. There’s something extraordinary
+          about capturing what feels fleeting, something that might otherwise
+          slip away unnoticed.
+        </p>
+        <p>
+          When I first picked up a camera as a teenager, it wasn’t just about
+          taking pictures. It was about seeing. I realized photography isn’t
+          just a tool to reproduce reality; it’s a way to interpret it, to
+          reveal layers that are often overlooked.
+        </p>
+      </div>
+    </div>
+
+    <div class="row align-items-start pt-3">
+      <!-- Second Part of Text -->
+      <div class="col-lg-6 col-md-12 order-lg-1 order-3">
+        <p>
+          For me, this journey began in Piedmont, the place I call home, with
+          its rolling hills and quiet beauty. It’s where I first learned to
+          chase the light, to wait patiently for that perfect moment when
+          everything aligns. And now, in the Riviera Vaudoise of Switzerland,
+          surrounded by towering peaks and reflective waters, I find myself
+          rediscovering that same awe. These landscapes, so different yet so
+          familiar, remind me that there’s always something new to see if you’re
+          paying attention.
+        </p>
+        <p>
+          Photography, for me, is more than an art form—it’s a way of life. It’s
+          about slowing down, observing the small details, and finding beauty in
+          the unexpected. It’s about the way a shadow moves across a mountain,
+          the fleeting glow of a sunset, or the stillness of a misty morning.
+          These are the moments that keep me searching, keep me inspired.
+        </p>
+        <p>
+          The galleries you’ll find here are pieces of that journey—snapshots of
+          time and place, glimpses into the world as I see it. They’re a
+          reflection of the way photography shapes how I connect with the world
+          around me. And they’re ever-evolving, just like the landscapes and
+          stories they capture.
+        </p>
+      </div>
+
+      <!-- Second Image -->
+      <div class="col-lg-6 col-md-12 order-lg-2 order-4">
+        <img
+          src="{{ second_image_url }}"
+          alt="70-200mm lens"
+          class="img-fluid rounded"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

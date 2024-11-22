@@ -61,7 +61,24 @@ def galleries():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    # Banner Image
+    banner_id = "Andrea_Ribero_bio_photo_qltpgn"
+    banner_url = cloudinary_url(banner_id)[0]
+
+    # Other Images
+    first_image_id = "5dmk4-Canon_cug99m"
+    first_image_url = cloudinary_url(first_image_id)[0]
+
+    second_image_id = "70-200mm_2_rysn1h"
+    second_image_url = cloudinary_url(second_image_id)[0]
+
+    return render_template(
+        "about.html", 
+        banner_url=banner_url,
+        first_image_url=first_image_url,
+        second_image_url=second_image_url
+    )
+
 
 @app.route("/contact")
 def contact():
