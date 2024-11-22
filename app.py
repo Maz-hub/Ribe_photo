@@ -1,8 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from cloudinary.utils import cloudinary_url
 from cloudinary.api import resource
 import cloudinary
 import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -17,11 +19,11 @@ cloudinary.config(
 )
 
 # Flask instance
-app = Flask(__name__)  # This must come before any use of 'app'
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Public IDs for the slides
+    # Slides
     public_ids = [
         "Leman_Ribe_Photo_2_kjqykc",
         "Plitvice_Ribe_Photo_25_pwpx4p",
@@ -29,10 +31,8 @@ def index():
         "Sahara_Ribe_Photo_3_mgyyrr"
     ]
 
-    # Generate URLs dynamically for the public IDs
     slide_urls = [cloudinary_url(public_id)[0] for public_id in public_ids]
 
-    # Pass the URLs to the template
     return render_template("index.html", slide_urls=slide_urls)
 
 @app.route("/galleries")
@@ -51,11 +51,9 @@ def galleries():
         
     ]
 
-    # Generate URLs dynamically
     banner_url = cloudinary_url(banner_id)[0]
     project_urls = [cloudinary_url(project_id)[0] for project_id in project_ids]
 
-    # Pass the URLs to the template
     return render_template("galleries.html", banner_url=banner_url, project_urls=project_urls)
 
 
@@ -93,6 +91,40 @@ def privacy_terms():
     banner_url = cloudinary_url(banner_id)[0]
     
     return render_template("privacy_terms.html", banner_url=banner_url)
+
+
+@app.route('/send_email', methods=['POST'])
+def send_email():
+    # Get form data
+    user_name = request.form.get('name')
+    user_email = request.form.get('email')
+    user_message = request.form.get('message')
+
+    # Compose the email
+    message = Mail(
+        from_email='no-reply@ribephoto.com',  # SendGrid verified email (required)
+        to_emails='ribephoto@gmail.com',  # Photographer's Gmail
+        subject=f"New Contact Form Submission from {user_name}",
+        html_content=f"""
+            <p>You have a new contact form submission:</p>
+            <p><strong>Name:</strong> {user_name}</p>
+            <p><strong>Email:</strong> {user_email}</p>
+            <p><strong>Message:</strong></p>
+            <p>{user_message}</p>
+        """
+    )
+
+    try:
+        # Send the email using SendGrid
+        sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        return "Email sent successfully!", 200
+    except Exception as e:
+        # Print the error for debugging
+        print(f"Error sending email: {e}")
+        return "Failed to send email", 500
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
