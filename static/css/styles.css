@@ -25,6 +25,32 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Back to the top button */
+.to-top-btn {
+  position: fixed;
+  z-index: 20;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  background-color: rgba(40, 75, 98, 0.7725490196);
+  color: #e9eaec;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.to-top-btn:hover {
+  background-color: rgba(61, 115, 151, 0.8470588235);
+}
+
+.show {
+  opacity: 1;
+}
+
 /* Homepage carousel adjustments */
 .carousel-item {
   height: 100vh; /* Full viewport height */
