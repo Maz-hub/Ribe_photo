@@ -126,31 +126,34 @@ body {
 
 // GALLERIES - PROJECTS
 .masonry-grid {
-  display: flex; /* Enable flexbox to help Masonry calculate width */
-  flex-wrap: wrap;
+  display: flex; /* Enable flexbox for Masonry layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .gallery-item {
   margin-bottom: 10px;
-  padding: 5px; // Add padding to create spacing between items
+  padding: 5px; /* Create spacing between grid items */
   box-sizing: border-box;
 
-  // For desktop: 3 columns
+  // Desktop: 3 columns
   width: calc(33.333% - 10px);
 
   @media (max-width: 992px) {
-    // For tablets: 2 columns
+    // Tablet: 2 columns
     width: calc(50% - 10px);
   }
 
   @media (max-width: 576px) {
-    // For mobile: 1 column
+    // Mobile: 1 column
     width: calc(100% - 10px);
   }
 
+  // Images in the grid
   img {
     width: 100%;
-    height: auto; // Maintain aspect ratio
-    display: block; // Prevent gaps
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing */
+    object-fit: cover; /* Ensure the image fills the grid item */
+    border-radius: 5px; /* Optional: Add rounded corners */
   }
 }

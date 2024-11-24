@@ -80,10 +80,14 @@ def lake_leman():
         "Leman_Ribe_Photo_2_rdyged",
     ]
 
-    # Fetch URLs for the images
-    project_urls = [cloudinary_url(image_id)[0] for image_id in lake_leman_ids]
+    # Apply transformations for appropriate size
+    project_urls = [
+        cloudinary_url(image_id, transformation={"width": 1200, "height": 800, "crop": "fit"})[0]
+        for image_id in lake_leman_ids
+    ]
 
     return render_template("lake_leman.html", project_urls=project_urls)
+
 
 
 

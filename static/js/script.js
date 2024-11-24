@@ -39,6 +39,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 document.addEventListener("DOMContentLoaded", userScroll);
 document.querySelector("#to-top").addEventListener("click", scrollToTop);
 
+// MASONRY
+
 window.onload = () => {
   const grid = document.querySelector(".masonry-grid");
   if (grid) {
