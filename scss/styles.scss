@@ -115,3 +115,42 @@ body {
     }
   }
 }
+
+// GALLERIES - PROJECTS
+// Ensure consistent box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// GALLERIES - PROJECTS
+.masonry-grid {
+  display: flex; /* Enable flexbox to help Masonry calculate width */
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  margin-bottom: 10px;
+  padding: 5px; // Add padding to create spacing between items
+  box-sizing: border-box;
+
+  // For desktop: 3 columns
+  width: calc(33.333% - 10px);
+
+  @media (max-width: 992px) {
+    // For tablets: 2 columns
+    width: calc(50% - 10px);
+  }
+
+  @media (max-width: 576px) {
+    // For mobile: 1 column
+    width: calc(100% - 10px);
+  }
+
+  img {
+    width: 100%;
+    height: auto; // Maintain aspect ratio
+    display: block; // Prevent gaps
+  }
+}

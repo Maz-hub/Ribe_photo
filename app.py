@@ -57,6 +57,36 @@ def galleries():
     return render_template("galleries.html", banner_url=banner_url, project_urls=project_urls)
 
 
+# GALLERIES
+
+@app.route("/lake_leman")
+def lake_leman():
+    # Public IDs for the images in the Lake Léman project
+    lake_leman_ids = [
+        "Leman_Ribe_Photo_7_dizy6f",
+        "Leman_Ribe_Photo_14_kcu4ua",
+        "Leman_Ribe_Photo_13_tcedfr",
+        "Leman_Ribe_Photo_15_xygour",
+        "Leman_Ribe_Photo_5_lrlbxn",
+        "Leman_Ribe_Photo_12_fydbps",
+        "Leman_Ribe_Photo_11_swtdus",
+        "Leman_Ribe_Photo_9_i3ozk1",
+        "Leman_Ribe_Photo_10_znewj3",
+        "Leman_Ribe_Photo_3_ols2wh",
+        "Leman_Ribe_Photo_4_noe41u",
+        "Leman_Ribe_Photo_8_ug0yhi",
+        "Leman_Ribe_Photo_6_bw9mwm",
+        "Leman_Ribe_Photo_1_zb9tbz",
+        "Leman_Ribe_Photo_2_rdyged",
+    ]
+
+    # Fetch URLs for the images
+    project_urls = [cloudinary_url(image_id)[0] for image_id in lake_leman_ids]
+
+    return render_template("lake_leman.html", project_urls=project_urls)
+
+
+
 @app.route("/about")
 def about():
     # Banner Image

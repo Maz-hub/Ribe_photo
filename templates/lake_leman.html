@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-lg mt-5">
+  <h1 class="text-center text-uppercase">Lake Léman</h1>
+  <div class="masonry-grid">
+    {% for url in project_urls %}
+    <div class="gallery-item">
+      <img src="{{ url }}" alt="Lake Léman Photos" class="img-fluid" />
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -38,3 +38,18 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // run when DOM is loaded / Event Listeners
 document.addEventListener("DOMContentLoaded", userScroll);
 document.querySelector("#to-top").addEventListener("click", scrollToTop);
+
+window.onload = () => {
+  const grid = document.querySelector(".masonry-grid");
+  if (grid) {
+    const masonryInstance = new Masonry(grid, {
+      itemSelector: ".gallery-item",
+      gutter: 10,
+    });
+
+    // Force Masonry to re-layout after window resizing
+    window.addEventListener("resize", () => {
+      masonryInstance.layout();
+    });
+  }
+};
