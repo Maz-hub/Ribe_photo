@@ -93,37 +93,55 @@ def privacy_terms():
     return render_template("privacy_terms.html", banner_url=banner_url)
 
 
+
 @app.route('/send_email', methods=['POST'])
 def send_email():
-    # Get form data
-    user_name = request.form.get('name')
-    user_email = request.form.get('email')
-    user_message = request.form.get('message')
-
-    # Compose the email
-    message = Mail(
-        from_email='no-reply@ribephoto.com',  # SendGrid verified email (required)
-        to_emails='ribephoto@gmail.com',  # Photographer's Gmail
-        subject=f"New Contact Form Submission from {user_name}",
-        html_content=f"""
-            <p>You have a new contact form submission:</p>
-            <p><strong>Name:</strong> {user_name}</p>
-            <p><strong>Email:</strong> {user_email}</p>
-            <p><strong>Message:</strong></p>
-            <p>{user_message}</p>
-        """
-    )
-
     try:
-        # Send the email using SendGrid
+        import certifi
+
+        os.environ['SSL_CERT_FILE'] = certifi.where()
+
+        # Get form data
+        user_name = request.form.get('name')
+        user_email = request.form.get('email')
+        user_message = request.form.get('message')
+
+        # Debugging: Print form data and API Key
+        print(f"SendGrid API Key: {os.getenv('SENDGRID_API_KEY')}")
+        print(f"Name: {user_name}, Email: {user_email}, Message: {user_message}")
+
+        # Ensure all fields are populated
+        if not user_name or not user_email or not user_message:
+            return "All form fields are required", 400
+
+        # Compose the email
+        message = Mail(
+            from_email='ribephoto@gmail.com',  # The sender email (must be verified in SendGrid)
+            to_emails='ribephoto@gmail.com',  # The recipient email
+            subject=f"New Contact Form Submission from {user_name}",
+            html_content=f"""
+                <p>You have a new contact form submission:</p>
+                <p><strong>Name:</strong> {user_name}</p>
+                <p><strong>Email:</strong> {user_email}</p>
+                <p><strong>Message:</strong></p>
+                <p>{user_message}</p>
+            """
+        )
+
+        # Send email using SendGrid
         sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
         response = sg.send(message)
+
+        # Debugging: Print response details
+        print(f"Response Status Code: {response.status_code}")
+        print(f"Response Body: {response.body}")
+        print(f"Response Headers: {response.headers}")
+
         return "Email sent successfully!", 200
     except Exception as e:
-        # Print the error for debugging
+        # Print and return the error
         print(f"Error sending email: {e}")
-        return "Failed to send email", 500
-
+        return f"Failed to send email: {e}", 500
 
 
 if __name__ == "__main__":
