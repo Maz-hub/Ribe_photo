@@ -57,10 +57,12 @@ def galleries():
     return render_template("galleries.html", banner_url=banner_url, project_urls=project_urls)
 
 
-# GALLERIES
 
 @app.route("/lake_leman")
 def lake_leman():
+    # Public ID for the banner photo
+    banner_id = "Title_2_oza264"
+
     # Public IDs for the images in the Lake Léman project
     lake_leman_ids = [
         "Leman_Ribe_Photo_7_dizy6f",
@@ -80,14 +82,28 @@ def lake_leman():
         "Leman_Ribe_Photo_2_rdyged",
     ]
 
-    # Apply transformations for appropriate size
-    project_urls = [
-        cloudinary_url(image_id, transformation={"width": 1200, "height": 800, "crop": "fit"})[0]
-        for image_id in lake_leman_ids
-    ]
+    banner_url = cloudinary_url(banner_id)[0]
 
-    return render_template("lake_leman.html", project_urls=project_urls)
+    # List to hold image URLs and titles
+    project_images = []
 
+    # Fetch URLs and titles
+    for image_id in lake_leman_ids:
+        # Generate the image URL
+        url = cloudinary_url(image_id)[0]
+        
+        # Fetch metadata from Cloudinary
+        resource = cloudinary.api.resource(image_id, context=True)
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title')  # Default title if none exists
+        
+        # Add image data to the list
+        project_images.append({
+            'url': url,
+            'title': title
+        })
+
+    # Render the template with URLs and titles
+    return render_template("lake_leman.html", banner_url=banner_url, project_images=project_images)
 
 
 

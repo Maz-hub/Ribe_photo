@@ -55,3 +55,28 @@ window.onload = () => {
     });
   }
 };
+
+// MODAL
+document.addEventListener('DOMContentLoaded', function () {
+  // Select all elements with the class 'open-modal'
+  document.querySelectorAll('.open-modal').forEach((el) => {
+    el.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent default behavior of the <a> tag
+
+      // Get the image URL and title from the data attributes
+      const imageUrl = this.getAttribute('data-bs-image');
+      const imageTitle = this.getAttribute('data-bs-title');
+
+      // Set the modal image src
+      const modalImage = document.getElementById('modalImage');
+      modalImage.setAttribute('src', imageUrl);
+
+      // Set the modal title
+      const modalTitle = document.getElementById('imageModalLabel');
+      modalTitle.textContent = imageTitle;
+    });
+  });
+});
+
+
+
