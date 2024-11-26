@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Banner -->
+<section
+  id="banner"
+  class="banner"
+  style="background-image: url('{{ banner_url }}');"
+></section>
+
+<section>
+  <div class="container">
+    <p class="text-justify my-2 mt-5">
+        There’s something special about the Swiss mountains in autumn, a kind of magic that you can feel in the air. The colors start to change, the leaves turn to shades of amber and crimson, and a quiet settles over the landscape. But it’s the mist that really transforms everything—rolling through the valleys, weaving around the peaks, and clinging to the trees like a soft, elusive blanket.
+    </p>
+    <p class="text-justify mb-2">
+        On days like these, the mountains feel alive, breathing in rhythm with the fog that comes and goes, hiding and revealing the scenery in its own time. The usual sharp lines of the landscape soften, replaced by shadows and glimpses of snow-dusted peaks that appear and vanish, as if playing hide-and-seek. It’s as if the mountains are inviting you to slow down and take it all in, one hidden view at a time.
+    </p>
+    <p class="text-justify my-2">
+        Autumn here is not just a season; it’s a feeling—a deep, quiet beauty that needs no grand vistas to impress. The muted colors, the drifting mist, and the faint chill in the air all blend into a scene that feels timeless, almost sacred. These photos are my attempt to capture that mood, that fleeting beauty that belongs to autumn alone.
+    </p>
+    <p class="text-justify mb-5">
+        So here’s to the Swiss mountains, dressed in their autumn best. May these images bring a little piece of that serene, mist-filled magic to you, wherever you are.
+    </p>
+</section>
+
+<div class="container-lg mt-5">
+  <div class="masonry-grid">
+    {% for image in project_images %}
+    <div class="gallery-item">
+      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
+         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+        <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

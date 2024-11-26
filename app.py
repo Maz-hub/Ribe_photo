@@ -239,7 +239,61 @@ def dubrovnik_croatia():
             'title': title
         })
 
-    return render_template("dubrovnik_croatia.html", banner_url=banner_url, project_images=project_images)    
+    return render_template("dubrovnik_croatia.html", banner_url=banner_url, project_images=project_images)  
+
+
+#mountains_autumn
+
+@app.route("/mountains_autumn")
+def mountains_autumn():
+    # Public ID for the banner photo
+    banner_id = "Title_le3xqj"
+
+    # Public IDs for the images in the Lake Léman project
+    mountains_autumn_ids = [
+        "Autumn_Ribe_Photo_21_raqyvv",
+        "Autumn_Ribe_Photo_20_kqpzpb",
+        "Autumn_Ribe_Photo_18_ry3vjv",
+        "Autumn_Ribe_Photo_17_hju0rp",
+        "Autumn_Ribe_Photo_14_hjf7d5",
+        "Autumn_Ribe_Photo_19_a0q9wb",
+        "Autumn_Ribe_Photo_15_xhnw0p",
+        "Autumn_Ribe_Photo_16_qo3wav",
+        "Autumn_Ribe_Photo_12_b7evhv",
+        "Autumn_Ribe_Photo_6_cdaz01",
+        "Autumn_Ribe_Photo_5_gxppmo",
+        "Autumn_Ribe_Photo_4_mtait5",
+        "Autumn_Ribe_Photo_3_jt9xpz",
+        "Autumn_Ribe_Photo_1_qte4o9",
+        "Autumn_Ribe_Photo_2_uh4yy6",
+        "Autumn_Ribe_Photo_13_onuza3",
+        "Autumn_Ribe_Photo_11_qnnbsn",
+        "Autumn_Ribe_Photo_9_vz79xn",
+        "Autumn_Ribe_Photo_10_dpdivw",
+        "Autumn_Ribe_Photo_8_mqxfh2",
+    ]
+
+    banner_url = cloudinary_url(banner_id)[0]
+
+    # List to hold image URLs and titles
+    project_images = []
+
+    # Fetch URLs and titles
+    for image_id in mountains_autumn_ids:
+        # Generate the image URL
+        url = cloudinary_url(image_id)[0]
+        
+        # Fetch metadata from Cloudinary
+        resource = cloudinary.api.resource(image_id, context=True)
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title') 
+        
+        # Image data to the list
+        project_images.append({
+            'url': url,
+            'title': title
+        })
+
+    return render_template("mountains_autumn.html", banner_url=banner_url, project_images=project_images)        
 
 
 
