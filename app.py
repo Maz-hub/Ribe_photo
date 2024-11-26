@@ -170,6 +170,77 @@ def plitvice_national_park_croatia():
 
     return render_template("plitvice_national_park_croatia.html", banner_url=banner_url, project_images=project_images)
 
+#dubrovnik_croatia
+
+@app.route("/dubrovnik_croatia")
+def dubrovnik_croatia():
+    # Public ID for the banner photo
+    banner_id = "Title_tpdmtb"
+
+    # Public IDs for the images in the Lake Léman project
+    dubrovnik_croatia_ids = [
+        "Dubrovnik_Ribe_Photo_30_mhljnj",
+        "Dubrovnik_Ribe_Photo_29_thunur",
+        "Dubrovnik_Ribe_Photo_25_poveta",
+        "Dubrovnik_Ribe_Photo_34_kt9zcr",
+        "Dubrovnik_Ribe_Photo_35_gybydv",
+        "Dubrovnik_Ribe_Photo_37_lodc5m",
+        "Dubrovnik_Ribe_Photo_23_yslhze",
+        "Dubrovnik_Ribe_Photo_32_forgbx",
+        "Dubrovnik_Ribe_Photo_39_wznlqk",
+        "Dubrovnik_Ribe_Photo_36_zfut1f",
+        "Dubrovnik_Ribe_Photo_20_lpv7vx",
+        "Dubrovnik_Ribe_Photo_9_stegic",
+        "Dubrovnik_Ribe_Photo_40_brznpw",
+        "Dubrovnik_Ribe_Photo_24_cfmhv2",
+        "Dubrovnik_Ribe_Photo_10_g5m1eq",
+        "Dubrovnik_Ribe_Photo_15_yfkf2z",
+        "Dubrovnik_Ribe_Photo_28_qpskjv",
+        "Dubrovnik_Ribe_Photo_4_mspapj",
+        "Dubrovnik_Ribe_Photo_41_ymmaij",
+        "Dubrovnik_Ribe_Photo_1_skhd2i",
+        "Dubrovnik_Ribe_Photo_31_rfnrzo",
+        "Dubrovnik_Ribe_Photo_21_f36prs",
+        "Dubrovnik_Ribe_Photo_22_zu5khy",
+        "Dubrovnik_Ribe_Photo_13_rgiscs",
+        "Dubrovnik_Ribe_Photo_2_swxhh6",
+        "Dubrovnik_Ribe_Photo_18_vcid89",
+        "Dubrovnik_Ribe_Photo_19_kz4fbh",
+        "Dubrovnik_Ribe_Photo_17_pkzq3q",
+        "Dubrovnik_Ribe_Photo_5_h8slmo",
+        "Dubrovnik_Ribe_Photo_7_dmxqdk",
+        "Dubrovnik_Ribe_Photo_11_yqnaiu",
+        "Dubrovnik_Ribe_Photo_6_icvydy",
+        "Dubrovnik_Ribe_Photo_12_nrtyni",
+        "Dubrovnik_Ribe_Photo_14_olao4q",
+        "Dubrovnik_Ribe_Photo_26_qgkl9r",
+        "Dubrovnik_Ribe_Photo_8_mz22ij",
+        "Dubrovnik_Ribe_Photo_16_lfroz2",
+        "Dubrovnik_Ribe_Photo_3_zw4rbt",
+    ]
+
+    banner_url = cloudinary_url(banner_id)[0]
+
+    # List to hold image URLs and titles
+    project_images = []
+
+    # Fetch URLs and titles
+    for image_id in dubrovnik_croatia_ids:
+        # Generate the image URL
+        url = cloudinary_url(image_id)[0]
+        
+        # Fetch metadata from Cloudinary
+        resource = cloudinary.api.resource(image_id, context=True)
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title') 
+        
+        # Image data to the list
+        project_images.append({
+            'url': url,
+            'title': title
+        })
+
+    return render_template("dubrovnik_croatia.html", banner_url=banner_url, project_images=project_images)    
+
 
 
 @app.route("/about")
