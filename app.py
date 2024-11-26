@@ -337,7 +337,55 @@ def sahara_sands():
             'title': title
         })
 
-    return render_template("sahara_sands.html", banner_url=banner_url, project_images=project_images)         
+    return render_template("sahara_sands.html", banner_url=banner_url, project_images=project_images)   
+
+
+#mushrooms
+
+@app.route("/mushrooms")
+def mushrooms():
+    # Public ID for the banner photo
+    banner_id = "Title_cxofnz"
+
+    # Public IDs for the images in the Lake Léman project
+    mushrooms_ids = [
+        "Mushroom_ribe_photo_13_jslkcf",
+        "Mushroom_ribe_photo_8_ochcgi",
+        "Mushroom_ribe_photo_11_lqbq7y",
+        "Mushroom_ribe_photo_9_jofhb3",
+        "Mushroom_ribe_photo_6_k1bloq",
+        "Mushroom_ribe_photo_4_diobz3",
+        "Mushroom_ribe_photo_3_xrfsdr",
+        "Mushroom_ribe_photo_5_c9cp26",
+        "Mushroom_ribe_photo_10_i0z0xd",
+        "Mushroom_ribe_photo_12_waoqzd",
+        "Mushroom_ribe_photo_7_zbett1",
+        "Mushroom_ribe_photo_2_fpeu46",
+        "Mushroom_ribe_photo_1_cfmg9t",
+    ]
+
+    banner_url = cloudinary_url(banner_id)[0]
+
+    # List to hold image URLs and titles
+    project_images = []
+
+    # Fetch URLs and titles
+    for image_id in mushrooms_ids:
+        # Generate the image URL
+        url = cloudinary_url(image_id)[0]
+        
+        # Fetch metadata from Cloudinary
+        resource = cloudinary.api.resource(image_id, context=True)
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title') 
+        
+        # Image data to the list
+        project_images.append({
+            'url': url,
+            'title': title
+        })
+
+    return render_template("mushrooms.html", banner_url=banner_url, project_images=project_images)         
+
 
 
 

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Banner -->
+<section
+  id="banner"
+  class="banner"
+  style="background-image: url('{{ banner_url }}');"
+></section>
+
+<section>
+  <div class="container">
+    <p class="text-justify my-2 mt-5">
+        Once upon a time… deep in a forest where sunlight filters through a thick canopy, and the ground is blanketed in moss and leaves, a secret world waits. No, it’s not exactly a place of fairies and elves, but it’s close enough that it stirs the imagination. These little clusters of mushrooms, tucked away and barely noticed, bring to life a kind of magic that’s right under our feet.
+    </p>
+    <p class="text-justify mb-2">
+        There’s something enchanting about these tiny, hidden corners of the forest. Mushrooms of all shapes and shades pop up through the damp earth, each one a small mystery. Some grow in clusters, huddling together like a little family, while others stand alone, wrapped in soft moss or leaning against ancient tree roots. They seem delicate, almost fragile, yet they thrive here in the quiet shadows, resilient in a world of their own.
+    </p>
+    <p class="text-justify mb-2">
+        Photographing them feels like capturing a glimpse into another universe—one that operates at its own pace, with its own set of rules. I like to think of it as the forest’s hidden heartbeat, pulsing softly beneath the surface. There’s no grand view, no sweeping landscape here, just the small, humble beauty of nature’s details. And if you let your mind wander, it’s easy to imagine tiny beings living among them, keeping the forest’s secrets.
+    </p>
+    <p class="text-justify mb-5">
+        So here’s to the mushrooms, to the beauty of things overlooked, and to the magic that’s there if you’re willing to look close enough. Not quite a fairy tale, but close enough to make you believe in a little bit of everyday wonder.
+    </p>
+</section>
+
+<div class="container-lg mt-5">
+  <div class="masonry-grid">
+    {% for image in project_images %}
+    <div class="gallery-item">
+      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
+         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+        <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
