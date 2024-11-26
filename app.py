@@ -56,8 +56,6 @@ def galleries():
 
     return render_template("galleries.html", banner_url=banner_url, project_urls=project_urls)
 
-
-
 @app.route("/lake_leman")
 def lake_leman():
     # Public ID for the banner photo
@@ -94,16 +92,83 @@ def lake_leman():
         
         # Fetch metadata from Cloudinary
         resource = cloudinary.api.resource(image_id, context=True)
-        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title')  # Default title if none exists
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title') 
         
-        # Add image data to the list
+        # Image data to the list
         project_images.append({
             'url': url,
             'title': title
         })
 
-    # Render the template with URLs and titles
     return render_template("lake_leman.html", banner_url=banner_url, project_images=project_images)
+
+
+#plitvice_national_park_croatia
+
+@app.route("/plitvice_national_park_croatia")
+def plitvice_national_park_croatia():
+    # Public ID for the banner photo
+    banner_id = "Title_2_swksfw"
+
+    # Public IDs for the images in the Lake Léman project
+    plitvice_national_park_croatia_ids = [
+        "Plitvice_Ribe_Photo_4_j0abpa",
+        "Plitvice_Ribe_Photo_21_horvk7",
+        "Plitvice_Ribe_Photo_32_cqicg6",
+        "Plitvice_Ribe_Photo_36_ca7jdg",
+        "Plitvice_Ribe_Photo_31_pfffpr",
+        "Plitvice_Ribe_Photo_37_iry8rq",
+        "Plitvice_Ribe_Photo_40_empdnd",
+        "Plitvice_Ribe_Photo_30_tjilw6",
+        "Plitvice_Ribe_Photo_14_fh0va0",
+        "Plitvice_Ribe_Photo_39_ghuhwi",
+        "Plitvice_Ribe_Photo_13_j3eby0",
+        "Plitvice_Ribe_Photo_35_wwzyte",
+        "Plitvice_Ribe_Photo_38_gu15z6",
+        "Plitvice_Ribe_Photo_26_bvo9jo",
+        "Plitvice_Ribe_Photo_22_gvcbie",
+        "Plitvice_Ribe_Photo_23_kueffb",
+        "Plitvice_Ribe_Photo_19_rrfsby",
+        "Plitvice_Ribe_Photo_20_fanw9x",
+        "Plitvice_Ribe_Photo_33_tcddfm",
+        "Plitvice_Ribe_Photo_10_nroywl",
+        "Plitvice_Ribe_Photo_27_kafihk",
+        "Plitvice_Ribe_Photo_12_niaq4f",
+        "Plitvice_Ribe_Photo_1_lldipa",
+        "Plitvice_Ribe_Photo_16_emnhqi",
+        "Plitvice_Ribe_Photo_29_p2ixan",
+        "Plitvice_Ribe_Photo_8_zkwhxb",
+        "Plitvice_Ribe_Photo_9_rab9le",
+        "Plitvice_Ribe_Photo_17_lnywdw",
+        "Plitvice_Ribe_Photo_28_jlh6ft",
+        "Plitvice_Ribe_Photo_34_oqlpcd",
+        "Plitvice_Ribe_Photo_25_uokiki",
+        "Plitvice_Ribe_Photo_24_pgrtcr",
+        "Plitvice_Ribe_Photo_7_csevjh",
+        "Plitvice_Ribe_Photo_11_vpn400",
+    ]
+
+    banner_url = cloudinary_url(banner_id)[0]
+
+    # List to hold image URLs and titles
+    project_images = []
+
+    # Fetch URLs and titles
+    for image_id in plitvice_national_park_croatia_ids:
+        # Generate the image URL
+        url = cloudinary_url(image_id)[0]
+        
+        # Fetch metadata from Cloudinary
+        resource = cloudinary.api.resource(image_id, context=True)
+        title = resource.get('context', {}).get('custom', {}).get('caption', 'No Title') 
+        
+        # Image data to the list
+        project_images.append({
+            'url': url,
+            'title': title
+        })
+
+    return render_template("plitvice_national_park_croatia.html", banner_url=banner_url, project_images=project_images)
 
 
 
