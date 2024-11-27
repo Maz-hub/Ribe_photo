@@ -476,5 +476,21 @@ def send_email():
         return f"Failed to send email: {e}", 500
 
 
+# 404 Error Handler
+@app.errorhandler(404)
+def page_not_found(e):
+    # Render the custom 404 page
+    return render_template("404.html"), 404
+
+# 500 Internal Server Errors
+@app.errorhandler(500)
+def internal_server_error(e):
+    # Render the custom 500 error page
+    return render_template("500.html"), 500
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
