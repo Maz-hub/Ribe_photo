@@ -1,19 +1,16 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center bg-warning">
-    <div class="row w-100">
-        <div class="col-12 text-center">
-            <h1 class="display-1 fw-bold text-danger">500</h1>
-            <p class="fs-4">Oops! Something went wrong on our end.</p>
-            <p class="text-muted">
-                We're working to fix it. Please try again later.
-            </p>
-            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3">
-                Go Back to Home
-            </a>
-        </div>
+{% extends "base.html" %} {% block content %}
+<div
+  class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center bg-warning"
+>
+  <div class="row w-100">
+    <div class="col-12 text-center">
+      <h1 class="display-1 fw-bold text-danger">500</h1>
+      <p class="fs-4">Oops! Something went wrong on our end.</p>
+      <p class="text-muted">We're working to fix it. Please try again later.</p>
+      <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3">
+        Go Back to Home
+      </a>
     </div>
+  </div>
 </div>
 {% endblock %}
-

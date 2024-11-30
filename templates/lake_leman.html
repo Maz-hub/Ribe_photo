@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <!-- Banner -->
 <section
   id="banner"
@@ -11,25 +9,51 @@
 <section>
   <div class="container">
     <p class="text-justify my-2 mt-5">
-      The Swiss coast of Lake Léman is more than just scenic—it’s a place where nature feels powerful, grounding, and alive. Here, by the edge of Geneva’s lake, I find something that pulls me back time and again. The lake is moody, changing with the weather, with light and color that seem almost unreal. It’s the kind of place that has a voice, if you’re willing to listen.
+      The Swiss coast of Lake Léman is more than just scenic—it’s a place where
+      nature feels powerful, grounding, and alive. Here, by the edge of Geneva’s
+      lake, I find something that pulls me back time and again. The lake is
+      moody, changing with the weather, with light and color that seem almost
+      unreal. It’s the kind of place that has a voice, if you’re willing to
+      listen.
     </p>
     <p class="text-justify mb-2">
-      On clear days, the water stretches out in striking shades of blue and green, reflecting the towering Alps in a perfect mirror. But it’s not always so serene. When the clouds roll in, the lake transforms, taking on a darker tone, with waves lapping against the rocks and winds that cut through the silence. That’s when you feel the rawness of nature, as if the lake itself has secrets to share with those who are patient enough to watch.
+      On clear days, the water stretches out in striking shades of blue and
+      green, reflecting the towering Alps in a perfect mirror. But it’s not
+      always so serene. When the clouds roll in, the lake transforms, taking on
+      a darker tone, with waves lapping against the rocks and winds that cut
+      through the silence. That’s when you feel the rawness of nature, as if the
+      lake itself has secrets to share with those who are patient enough to
+      watch.
     </p>
     <p class="text-justify my-2">
-      I’ve spent countless hours here, camera in hand, trying to capture those fleeting moments—the way the sunlight hits the water just before dusk, the quiet after a summer storm, or the softness of early morning when the world is still waking up. Lake Léman isn’t just beautiful; it’s alive, unpredictable, and humbling.
+      I’ve spent countless hours here, camera in hand, trying to capture those
+      fleeting moments—the way the sunlight hits the water just before dusk, the
+      quiet after a summer storm, or the softness of early morning when the
+      world is still waking up. Lake Léman isn’t just beautiful; it’s alive,
+      unpredictable, and humbling.
     </p>
     <p class="text-justify mb-5">
-      These photos are my attempt to bottle that feeling, that awe. For anyone who’s ever stood on these shores, I hope these images bring back memories. And for those who haven’t, I hope they give you a taste of the magic that lives here. This isn’t just a lake; it’s a part of Switzerland’s soul, a place where nature speaks with a timeless, unfiltered voice.
+      These photos are my attempt to bottle that feeling, that awe. For anyone
+      who’s ever stood on these shores, I hope these images bring back memories.
+      And for those who haven’t, I hope they give you a taste of the magic that
+      lives here. This isn’t just a lake; it’s a part of Switzerland’s soul, a
+      place where nature speaks with a timeless, unfiltered voice.
     </p>
+  </div>
 </section>
 
 <div class="container-lg mt-5">
   <div class="masonry-grid">
     {% for image in project_images %}
     <div class="gallery-item">
-      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
-         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+      <a
+        href="#"
+        class="open-modal"
+        data-bs-toggle="modal"
+        data-bs-target="#imageModal"
+        data-bs-image="{{ image.url }}"
+        data-bs-title="{{ image.title }}"
+      >
         <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
       </a>
     </div>
@@ -38,12 +62,23 @@
 </div>
 
 <!-- Bootstrap Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center">
         <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />

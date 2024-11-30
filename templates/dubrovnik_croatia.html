@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <!-- Banner -->
 <section
   id="banner"
@@ -11,28 +9,63 @@
 <section>
   <div class="container">
     <p class="text-justify my-2 mt-5">
-        Dubrovnik—the “pearl of the Adriatic.” This city has a way of drawing you in, not with flashy glamour, but with a quiet, rugged beauty that only gets better the closer you look. Walking the ancient city walls, I felt like I’d stepped back in time. Each stone, weathered and rough, has seen centuries of stories unfold. There’s a grit to Dubrovnik that makes it feel alive, like the past isn’t behind it but woven into its every crack and corner.
+      Dubrovnik—the “pearl of the Adriatic.” This city has a way of drawing you
+      in, not with flashy glamour, but with a quiet, rugged beauty that only
+      gets better the closer you look. Walking the ancient city walls, I felt
+      like I’d stepped back in time. Each stone, weathered and rough, has seen
+      centuries of stories unfold. There’s a grit to Dubrovnik that makes it
+      feel alive, like the past isn’t behind it but woven into its every crack
+      and corner.
     </p>
     <p class="text-justify mb-2">
-        On a cloudy day, the whole city takes on a different personality. The sky hangs heavy, casting a soft, diffused light that smooths out the edges, making the old walls and buildings seem almost otherworldly. Through my camera, I tried to capture that feeling—the weight of history, the mystery that lingers in the air. The Adriatic Sea, right there at the edge of it all, laps gently against the rocky coastline. It’s like the sea and the city have an understanding; they’ve been side by side for so long, they share the same rhythm.
+      On a cloudy day, the whole city takes on a different personality. The sky
+      hangs heavy, casting a soft, diffused light that smooths out the edges,
+      making the old walls and buildings seem almost otherworldly. Through my
+      camera, I tried to capture that feeling—the weight of history, the mystery
+      that lingers in the air. The Adriatic Sea, right there at the edge of it
+      all, laps gently against the rocky coastline. It’s like the sea and the
+      city have an understanding; they’ve been side by side for so long, they
+      share the same rhythm.
     </p>
     <p class="text-justify my-2">
-        Dubrovnik’s streets are narrow, winding, and alive with the sounds of footsteps and quiet conversations. These alleys aren’t just pathways—they’re veins that keep the city pulsing. You can lose yourself in them, following the scent of the sea breeze and echoes of old conversations. The architecture here tells its own story: red rooftops stacked against the cliffs, shutters thrown open to catch the breeze, and stone walls that have weathered battles, storms, and the passing of time.
+      Dubrovnik’s streets are narrow, winding, and alive with the sounds of
+      footsteps and quiet conversations. These alleys aren’t just
+      pathways—they’re veins that keep the city pulsing. You can lose yourself
+      in them, following the scent of the sea breeze and echoes of old
+      conversations. The architecture here tells its own story: red rooftops
+      stacked against the cliffs, shutters thrown open to catch the breeze, and
+      stone walls that have weathered battles, storms, and the passing of time.
     </p>
     <p class="text-justify my-2">
-        There’s something about the light here, especially on a day when the clouds roll in and dim the sun, that brings out the details—the intricate arches, the worn steps, the soft textures of the limestone. It’s like the city wants you to see it as it really is, without the distractions, without the tourist gloss. This is Dubrovnik, raw and real, its beauty lying in the way it embraces its past while still holding its ground on the edge of the Adriatic.
+      There’s something about the light here, especially on a day when the
+      clouds roll in and dim the sun, that brings out the details—the intricate
+      arches, the worn steps, the soft textures of the limestone. It’s like the
+      city wants you to see it as it really is, without the distractions,
+      without the tourist gloss. This is Dubrovnik, raw and real, its beauty
+      lying in the way it embraces its past while still holding its ground on
+      the edge of the Adriatic.
     </p>
     <p class="text-justify mb-5">
-        If you ever visit, don’t just glance at the sights—take a moment to really see it. Listen to the waves, feel the stones underfoot, and let the weight of history sink in. Dubrovnik doesn’t put on a show; it lets you in slowly, one alleyway, one stone, one story at a time.
+      If you ever visit, don’t just glance at the sights—take a moment to really
+      see it. Listen to the waves, feel the stones underfoot, and let the weight
+      of history sink in. Dubrovnik doesn’t put on a show; it lets you in
+      slowly, one alleyway, one stone, one story at a time.
     </p>
+  </div>
 </section>
 
 <div class="container-lg mt-5">
   <div class="masonry-grid">
     {% for image in project_images %}
     <div class="gallery-item">
-      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
-         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+      <a
+        href="#"
+        class="open-modal"
+        data-bs-toggle="modal"
+        data-bs-target="#imageModal"
+        data-bs-image="{{ image.url }}"
+        data-bs-title="{{ image.title }}"
+      >
         <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
       </a>
     </div>
@@ -41,12 +74,23 @@
 </div>
 
 <!-- Bootstrap Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center">
         <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />

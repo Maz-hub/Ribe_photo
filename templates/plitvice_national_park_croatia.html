@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <!-- Banner -->
 <section
   id="banner"
@@ -11,25 +9,52 @@
 <section>
   <div class="container">
     <p class="text-justify my-2 mt-5">
-      Plitvice National Park isn’t just a place you visit; it’s a place that sinks into you. This is where water meets rock, forest, and sky, creating something that feels timeless and untouched. Walking through Plitvice, you’re surrounded by the sound of water—cascading, rushing, trickling—each fall and stream telling its own story. The waterfalls here are raw and relentless, carving their paths through stone, as if they’ve been here forever and will be long after we’re gone.
+      Plitvice National Park isn’t just a place you visit; it’s a place that
+      sinks into you. This is where water meets rock, forest, and sky, creating
+      something that feels timeless and untouched. Walking through Plitvice,
+      you’re surrounded by the sound of water—cascading, rushing, trickling—each
+      fall and stream telling its own story. The waterfalls here are raw and
+      relentless, carving their paths through stone, as if they’ve been here
+      forever and will be long after we’re gone.
     </p>
     <p class="text-justify mb-2">
-      The lakes are something else, too. Crystal-clear and turquoise, they’re so vivid it’s like they’ve stolen a piece of the sky. There’s a quiet strength to them, reflecting the dense greenery and rugged cliffs, giving you the sense that you’re part of something ancient. On a calm day, the water mirrors everything perfectly, like it’s inviting you to see the world as it really is—layered, beautiful, and a little mysterious.
+      The lakes are something else, too. Crystal-clear and turquoise, they’re so
+      vivid it’s like they’ve stolen a piece of the sky. There’s a quiet
+      strength to them, reflecting the dense greenery and rugged cliffs, giving
+      you the sense that you’re part of something ancient. On a calm day, the
+      water mirrors everything perfectly, like it’s inviting you to see the
+      world as it really is—layered, beautiful, and a little mysterious.
     </p>
     <p class="text-justify my-2">
-      And then there’s the forest. Deep, dark, and alive. You feel it as you wander through, that sense of nature wrapping around you, each tree and leaf part of a story that’s been unfolding for centuries. Plitvice is the kind of place that whispers to you, that asks you to slow down and just take it all in. Every step, every view, is a reminder of nature’s power and beauty—a beauty that doesn’t need to shout to be heard.
+      And then there’s the forest. Deep, dark, and alive. You feel it as you
+      wander through, that sense of nature wrapping around you, each tree and
+      leaf part of a story that’s been unfolding for centuries. Plitvice is the
+      kind of place that whispers to you, that asks you to slow down and just
+      take it all in. Every step, every view, is a reminder of nature’s power
+      and beauty—a beauty that doesn’t need to shout to be heard.
     </p>
     <p class="text-justify mb-5">
-      These photos are my attempt to share a piece of that magic, to bring you along on this journey. Plitvice isn’t about the perfect shot or the postcard view; it’s about feeling something real, something untamed. So here’s to Plitvice, a place that lets you see nature in its purest form, no frills, no filters—just the way it’s meant to be.
+      These photos are my attempt to share a piece of that magic, to bring you
+      along on this journey. Plitvice isn’t about the perfect shot or the
+      postcard view; it’s about feeling something real, something untamed. So
+      here’s to Plitvice, a place that lets you see nature in its purest form,
+      no frills, no filters—just the way it’s meant to be.
     </p>
+  </div>
 </section>
 
 <div class="container-lg mt-5">
   <div class="masonry-grid">
     {% for image in project_images %}
     <div class="gallery-item">
-      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
-         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+      <a
+        href="#"
+        class="open-modal"
+        data-bs-toggle="modal"
+        data-bs-target="#imageModal"
+        data-bs-image="{{ image.url }}"
+        data-bs-title="{{ image.title }}"
+      >
         <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
       </a>
     </div>
@@ -38,12 +63,23 @@
 </div>
 
 <!-- Bootstrap Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center">
         <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />

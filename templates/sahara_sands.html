@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <!-- Banner -->
 <section
   id="banner"
@@ -11,22 +9,45 @@
 <section>
   <div class="container">
     <p class="text-justify my-2 mt-5">
-        Last March, the skies over the Riviera Vaudoise took on a strange and otherworldly glow as a massive cloud of Saharan dust drifted across Europe. The sands of the Sahara, carried thousands of kilometers by powerful winds, transformed the landscape here in Switzerland. Everything was cloaked in an orange haze, as if the whole world had been painted in shades of sunset.
+      Last March, the skies over the Riviera Vaudoise took on a strange and
+      otherworldly glow as a massive cloud of Saharan dust drifted across
+      Europe. The sands of the Sahara, carried thousands of kilometers by
+      powerful winds, transformed the landscape here in Switzerland. Everything
+      was cloaked in an orange haze, as if the whole world had been painted in
+      shades of sunset.
     </p>
     <p class="text-justify mb-2">
-        The effect on the lakeside was surreal. The mountains, usually so crisp against a blue sky, were softened, wrapped in a veil of desert dust that gave the scene an eerie, almost dreamlike quality. The usual clarity of Lake Geneva was replaced by a moody, sepia-toned reflection that seemed like something out of another world. There was a heaviness in the air, an earthy scent, as if a part of the Sahara had come to visit, leaving its mark on everything it touched.
+      The effect on the lakeside was surreal. The mountains, usually so crisp
+      against a blue sky, were softened, wrapped in a veil of desert dust that
+      gave the scene an eerie, almost dreamlike quality. The usual clarity of
+      Lake Geneva was replaced by a moody, sepia-toned reflection that seemed
+      like something out of another world. There was a heaviness in the air, an
+      earthy scent, as if a part of the Sahara had come to visit, leaving its
+      mark on everything it touched.
     </p>
     <p class="text-justify mb-5">
-        These photos capture that rare moment. The rocks along the lakeside, the mountains in the distance, even the calm surface of the water—all tinted in an orange glow that felt more like a memory than reality. For a brief time, the familiar Swiss landscape was transformed, borrowing the colors and mystery of a distant desert. This was nature’s own filter, a reminder of the unseen forces at play, shaping our world in unexpected ways.
+      These photos capture that rare moment. The rocks along the lakeside, the
+      mountains in the distance, even the calm surface of the water—all tinted
+      in an orange glow that felt more like a memory than reality. For a brief
+      time, the familiar Swiss landscape was transformed, borrowing the colors
+      and mystery of a distant desert. This was nature’s own filter, a reminder
+      of the unseen forces at play, shaping our world in unexpected ways.
     </p>
+  </div>
 </section>
 
 <div class="container-lg mt-5">
   <div class="masonry-grid">
     {% for image in project_images %}
     <div class="gallery-item">
-      <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#imageModal" 
-         data-bs-image="{{ image.url }}" data-bs-title="{{ image.title }}">
+      <a
+        href="#"
+        class="open-modal"
+        data-bs-toggle="modal"
+        data-bs-target="#imageModal"
+        data-bs-image="{{ image.url }}"
+        data-bs-title="{{ image.title }}"
+      >
         <img src="{{ image.url }}" alt="{{ image.title }}" class="img-fluid" />
       </a>
     </div>
@@ -35,12 +56,23 @@
 </div>
 
 <!-- Bootstrap Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-muted" id="imageModalLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center">
         <img id="modalImage" src="" alt="Image" class="img-fluid modal-image" />
