@@ -17,7 +17,7 @@ body {
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease-in-out; /* Semi-transparent background for readability */
+  transition: all 0.5s ease-in-out;
 }
 
 .navbar-sticky {
@@ -51,9 +51,9 @@ body {
   opacity: 1;
 }
 
-/* Homepage carousel adjustments */
+/* Homepage carousel */
 .carousel-item {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   min-height: 300px;
   display: flex;
   align-items: center;
@@ -62,11 +62,11 @@ body {
   background-size: cover;
 }
 
-/* Make images fully responsive and prevent horizontal scroll */
+/* Responsive images and prevent horizontal scroll */
 .carousel-item img {
-  width: 100%; /* Use 100% width to prevent overflow */
-  height: 100vh; /* Full viewport height */
-  object-fit: cover; /* Ensures the image scales and covers the full area */
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .carousel-caption {
@@ -75,52 +75,48 @@ body {
 
 /* BANNER */
 .banner {
-  background-position: center center; /* Centers the image */
-  background-size: cover; /* Ensures the image fills the banner */
-  background-repeat: no-repeat; /* Prevents tiling of the image */
-  height: 70vh; /* Default banner height for desktop */
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
 }
 
 /* Banner tablet view */
 @media (max-width: 1024px) {
   .banner {
-    height: 50vh; /* Adjust height for tablets */
+    height: 50vh;
   }
 }
 /* Banner mobile view */
 @media (max-width: 768px) {
   .banner {
-    height: 40vh; /* Adjust height for mobile */
+    height: 40vh;
   }
 }
 .project-card {
-  border-radius: 0.5rem;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
   cursor: pointer;
   /* Disable transform on hover for smaller screens */
-}
-.project-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 768px) {
   .project-card {
     /* Applies only to devices larger than 768px */
   }
   .project-card:hover {
-    transform: translateY(-1px); /* Slightly lift the image on desktop */
+    transform: translateY(-1px);
   }
 }
 
 .masonry-grid {
-  display: flex; /* Enable flexbox for Masonry layout */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  margin-left: -5px; /* Align items consistently */
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
   margin-right: -5px;
 }
 
 .gallery-item {
   margin-bottom: 10px;
-  padding: 5px; /* Create spacing between grid items */
+  padding: 5px;
   box-sizing: border-box;
   width: calc(33.333% - 10px);
 }
@@ -136,10 +132,18 @@ body {
 }
 .gallery-item img {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Prevent inline spacing */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  /* Updated object-fit rules */
-  object-fit: contain; /* Preserve full image within its container */
-  background-color: #f0f0f0; /* Optional: Add a light background for empty spaces */
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+}
+
+#flash-message {
+  margin-bottom: 20px;
+  max-width: 100%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
 }

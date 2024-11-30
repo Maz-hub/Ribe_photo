@@ -27,15 +27,19 @@
         </div>
       </div>
 
-      <!-- Contact Form Section -->
       <div class="col-lg-6 col-md-12">
-        <form action="/send_email" method="POST">
+        <!-- Success/Error Message Container -->
+        <div id="flash-message" class="alert" style="display: none"></div>
+
+        <!-- Contact Form -->
+        <form id="contactForm" method="POST">
           <div class="mb-3">
             <input
               type="text"
               name="name"
               class="form-control form-control-lg"
               placeholder="Your Name"
+              autocomplete="off"
               required
             />
           </div>
@@ -45,6 +49,7 @@
               name="email"
               class="form-control form-control-lg"
               placeholder="Your Email"
+              autocomplete="off"
               required
             />
           </div>
@@ -54,6 +59,7 @@
               class="form-control form-control-lg"
               rows="5"
               placeholder="Your Message"
+              autocomplete="off"
               required
             ></textarea>
           </div>

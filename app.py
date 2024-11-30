@@ -431,16 +431,13 @@ def send_email():
     try:
         import certifi
 
+        # Set SSL Certificate
         os.environ['SSL_CERT_FILE'] = certifi.where()
 
         # Get form data
         user_name = request.form.get('name')
         user_email = request.form.get('email')
         user_message = request.form.get('message')
-
-        # Debugging: Print form data and API Key
-        print(f"SendGrid API Key: {os.getenv('SENDGRID_API_KEY')}")
-        print(f"Name: {user_name}, Email: {user_email}, Message: {user_message}")
 
         # Ensure all fields are populated
         if not user_name or not user_email or not user_message:
@@ -464,16 +461,10 @@ def send_email():
         sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
         response = sg.send(message)
 
-        # Debugging: Print response details
-        print(f"Response Status Code: {response.status_code}")
-        print(f"Response Body: {response.body}")
-        print(f"Response Headers: {response.headers}")
-
         return "Email sent successfully!", 200
     except Exception as e:
-        # Print and return the error
-        print(f"Error sending email: {e}")
-        return f"Failed to send email: {e}", 500
+        return "Failed to send email. Please try again later.", 500
+
 
 
 # 404 Error Handler
