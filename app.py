@@ -479,9 +479,3 @@ def internal_server_error(e):
     # Render the custom 500 error page
     return render_template("500.html"), 500
 
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
