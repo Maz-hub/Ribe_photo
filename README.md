@@ -73,6 +73,14 @@ To avoid repetitive code, a global header and footer were created in templates/b
 
 ## Key Features and Functionalities
 
+### Contact Form with Email Notifications
+
+The app includes a Contact Form that allows users to send messages or inquiries to the photographer. This feature is powered by SendGrid, which handles the email delivery process. When a user submits the contact form, an email is sent directly to the photographer's Gmail account at ribephoto@gmail.com.
+
+- **Email Service**: The app uses SendGrid's free tier to send emails.
+- **Photographer's Email**: Emails are sent to the photographer's Gmail account (ribephoto@gmail.com).
+- **No Professional Email**: The app does not use a custom domain email. Instead, it uses the free Gmail account for simplicity.
+
 ### Gallery Pages
 
 The app features visually distinct gallery pages showcasing the following categories:
@@ -114,17 +122,25 @@ The app is deployed on **Heroku**, a cloud platform for hosting web apps. The de
 
 ## Deployment Steps
 
-1. Set up a **Heroku account** and create a new app.
-2. Add the Heroku remote repository to your project:
+1. Set up **Heroku account** and create a new app.
+2. Add the Heroku remote repository to project:
    ```bash
    heroku git:remote -a your-heroku-app-name
    ```
-3. Create a `Procfile` to specify the command to run your Flask app:
+3. Create a `Procfile` to specify the command to run Flask app:
    ```text
    web: gunicorn app:app
    ```
 4. Set environment variables (e.g., `CLOUDINARY_API_KEY`, `SENDGRID_API_KEY`) in the Heroku dashboard.
-5. Deploy the app:
+
+5. Install Python dependencies locally and ensure they are listed in requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
+6. Deploy the app:
+
    ```bash
    git push heroku master
    ```
@@ -136,7 +152,3 @@ Instructions [Heroku's Deployment Documentation](https://devcenter.heroku.com/ar
 ## Summary
 
 The Ribe Photo Portfolio Web App is a responsive and user-friendly website for showcasing photography galleries. Built with Flask, Bootstrap, and Cloudinary, it offers a simple but effective browsing experience. While this is a basic version with manual content management, it lays the groundwork for future improvements, such as adding dynamic content management and a blog.
-
-## Credits
-
-- Developed by [Mazoolander](mailto:mazoolander@me.com).
