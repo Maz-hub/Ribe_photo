@@ -1,8 +1,11 @@
 # Ribe Photo Portfolio Web App
 
-#### Video Demo: <URL HERE>
+#### Video Demo: <URL>
 
-#### Description:
+## Live Site
+
+You can view the live version of the Ribe Photo portfolio here:
+[https://ribe.photo](https://ribe.photo)
 
 ## Project Overview
 
@@ -64,13 +67,17 @@ To avoid repetitive code, a global header and footer were created in templates/b
 
 - **package.json**: and package-lock.json manage Node.js dependencies and frontend tools.
 
+- **Google Analytics Integration**: Tracks user interactions such as page views, scrolls, and outbound link clicks to provide insights into how users engage with the website.
+
+**Note:** `virt/`, `node_modules/`, and `__pycache__/` are excluded from version control using `.gitignore` to keep the repository clean and avoid unnecessary files.
+
 ## Key Features and Functionalities
 
 ### Gallery Pages
 
 The app features visually distinct gallery pages showcasing the following categories:
 
-1. **Mountains**: A collection of mountain landscapes.
+1. **Sahara Sands**: Photos of Riviera Vaudoise covered by a cloud of Saharan dust
 2. **Lake Leman**: Photos of Lake Leman during different seasons and lighting conditions.
 3. **Croatia**: Images from Dubrovnik and Plitvice Lakes National Park, Croatia.
 4. **Mountains Autumn**: Pictures of Swiss mountains during autumn.
@@ -105,10 +112,24 @@ The app works seamlessly on **mobile**, **tablet**, and **desktop** devices, tha
 
 The app is deployed on **Heroku**, a cloud platform for hosting web apps. The deployment process involved:
 
-1. Creating a Procfile to define the command Heroku uses to run the Flask app.
-2. Setting up environment variables, like the Cloudinary API key, using Heroku's configuration dashboard.
-3. Installing the required Python dependencies listed in requirements.txt.
-4. Linking the Heroku app to the GitHub repository for easy deployment.
+## Deployment Steps
+
+1. Set up a **Heroku account** and create a new app.
+2. Add the Heroku remote repository to your project:
+   ```bash
+   heroku git:remote -a your-heroku-app-name
+   ```
+3. Create a `Procfile` to specify the command to run your Flask app:
+   ```text
+   web: gunicorn app:app
+   ```
+4. Set environment variables (e.g., `CLOUDINARY_API_KEY`, `SENDGRID_API_KEY`) in the Heroku dashboard.
+5. Deploy the app:
+   ```bash
+   git push heroku master
+   ```
+
+Instructions [Heroku's Deployment Documentation](https://devcenter.heroku.com/articles/getting-started-with-python).
 
 ---
 
@@ -116,9 +137,6 @@ The app is deployed on **Heroku**, a cloud platform for hosting web apps. The de
 
 The Ribe Photo Portfolio Web App is a responsive and user-friendly website for showcasing photography galleries. Built with Flask, Bootstrap, and Cloudinary, it offers a simple but effective browsing experience. While this is a basic version with manual content management, it lays the groundwork for future improvements, such as adding dynamic content management and a blog.
 
-````
+## Credits
 
-```
-
-```
-````
+- Developed by [Mazoolander](mailto:mazoolander@me.com).
