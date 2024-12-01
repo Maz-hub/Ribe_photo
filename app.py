@@ -8,7 +8,9 @@ from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+if os.getenv("FLASK_ENV") != "production":
+    load_dotenv()
+
 
 # Cloudinary configuration
 cloudinary.config(
@@ -20,6 +22,7 @@ cloudinary.config(
 
 # Flask instance
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -478,4 +481,8 @@ def page_not_found(e):
 def internal_server_error(e):
     # Render the custom 500 error page
     return render_template("500.html"), 500
+
+from flask import Flask
+from flask_sslify import SSLify
+
 
