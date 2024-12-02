@@ -6,6 +6,14 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
+from flask_sslify import SSLify
+
+# Flask instance
+app = Flask(__name__)
+
+# Enforce SSL
+sslify = SSLify(app)
+
 
 # Load environment variables
 if os.getenv("FLASK_ENV") != "production":
@@ -19,10 +27,6 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=True
 )
-
-# Flask instance
-app = Flask(__name__)
-
 
 @app.route('/')
 def index():
